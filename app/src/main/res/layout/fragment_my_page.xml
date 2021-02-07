@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MyPageFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/bucket"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@color/appusBlue"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:text="장바구니"
+            android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/zzim"
+            android:layout_width="match_parent"
+            android:layout_weight="2.5"
+            android:background="@color/appusBlue"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:text="찜"
+            android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/order_list"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@color/appusBlue"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:text="주문내역"
+            android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/info_setting"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@color/appusBlue"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:text="개인정보수정"
+            android:textSize="30dp"/>
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@color/appusBlue"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:text="로그아웃"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="문의 | 000-0000-0000"/>
+
+    </LinearLayout>
+
+</FrameLayout>
