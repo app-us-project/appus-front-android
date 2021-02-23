@@ -1,13 +1,17 @@
 package com.jm5.appus.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.jm5.appus.ContentActivity
+import com.jm5.appus.OnItemClickListener
 import com.jm5.appus.R
 import com.jm5.appus.adapter.PlantAdapter
 import com.jm5.appus.dataForm.PlantsList
@@ -31,6 +35,20 @@ class ContentsFragment : Fragment() {
 
         var adapter = PlantAdapter(context,item)
         recyclerView.adapter=adapter
+
+        adapter.setItemListener(object : OnItemClickListener {
+            override fun onItemClick(holder: PlantAdapter.ViewHolder, view: View, position: Int) {
+                var item = adapter.getItem(position)
+//                Toast.makeText(context,item.name,Toast.LENGTH_LONG).show()
+
+                var intent = Intent(context,ContentActivity::class.java)
+                intent.putExtra("plantName",item.name)
+                intent.putExtra("plantImg",item.img)
+                intent.putExtra("plantPrice",item.prices)
+
+                startActivity(intent)
+            }
+        })
         return view
     }
     fun updateList(){

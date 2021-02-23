@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+
+
+
         bottomnavi.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 // itemId에 따라 viewPager 바뀜
