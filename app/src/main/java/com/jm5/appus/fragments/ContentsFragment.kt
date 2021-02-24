@@ -39,7 +39,6 @@ class ContentsFragment : Fragment() {
         adapter.setItemListener(object : OnItemClickListener {
             override fun onItemClick(holder: PlantAdapter.ViewHolder, view: View, position: Int) {
                 var item = adapter.getItem(position)
-//                Toast.makeText(context,item.name,Toast.LENGTH_LONG).show()
 
                 var intent = Intent(context,ContentActivity::class.java)
                 intent.putExtra("plantName",item.name)
@@ -53,8 +52,8 @@ class ContentsFragment : Fragment() {
     }
     fun updateList(){
        item.clear()
-        item.add(PlantsList("식물A","1000원","https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"))
-        item.add(PlantsList("식물B","2000원","https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"))
-        item.add(PlantsList("식물C","3000원","https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"))
+        item.add(PlantsList("식물A","1000","https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"))
+        item.add(PlantsList("식물B","2000","https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"))
+        item.add(PlantsList("식물C","3000","https://cdn.pixabay.com/photo/2016/03/21/23/25/link-1271843_1280.png"))
     }
 }
