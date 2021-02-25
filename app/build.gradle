@@ -42,4 +42,7 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:4.10.0"
     //슬라이딩 메뉴
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 }
