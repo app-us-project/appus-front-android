@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/wishPlant"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="208dp"
+        android:src="@drawable/flower"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/wishLike"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/heart"
+        app:layout_constraintBottom_toBottomOf="@id/wishPlant"
+        app:layout_constraintRight_toRightOf="@id/wishPlant" />
+
+    <TextView
+        android:id="@+id/wishText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="너만바라볼거야 해바라기"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/wishPlant"
+        app:layout_constraintTop_toBottomOf="@id/wishPlant"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/wishPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/wishText"
+        app:layout_constraintLeft_toLeftOf="@id/wishText"
+        android:layout_marginTop="10dp"
+        android:text="7800원"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
