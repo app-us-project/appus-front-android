@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:elevation="25dp">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/abc_vector_test"/>
+            <TextView
+                android:gravity="center"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:text="로그인"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <ImageButton
+                android:id="@+id/btn_cart"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/basket" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical">
+        <TextView
+            android:paddingTop="20dp"
+            android:id="@+id/tv_login_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50dp"
+            android:text="이메일"/>
+        <EditText
+            android:id="@+id/edit_login_email"
+            android:layout_width="328dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:textSize="13dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/roundselector"
+            android:hint="    이메일을 입력하세요" />
+        <TextView
+            android:id="@+id/tv_login_password"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:hint="비밀번호"
+            android:layout_marginLeft="50dp"
+            android:text="비밀번호"/>
+        <EditText
+            android:id="@+id/edit_login_password"
+            android:layout_width="328dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:textSize="13dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/roundselector"
+            android:hint="비밀번호를 입력하세요"/>
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/btn_login"
+            android:layout_width="328dp"
+            android:layout_height="42dp"
+            android:background="@drawable/buttonbackground"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="17dp"
+            android:text="로그인" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/tv_find_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="비밀번호 찾기"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" | "/>
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="회원가입"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

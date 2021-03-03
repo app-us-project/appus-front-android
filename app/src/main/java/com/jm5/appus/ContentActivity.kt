@@ -1,5 +1,6 @@
 package com.jm5.appus
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -27,6 +28,15 @@ class ContentActivity : AppCompatActivity() {
             AnimationUtils.loadAnimation(applicationContext, R.anim.translate_up)
         val translatedown: Animation =
             AnimationUtils.loadAnimation(applicationContext, R.anim.translate_down)
+
+        //슬라이딩 메뉴의 장바구니 버튼
+        content_cart.setOnClickListener {
+
+        }
+        //슬라이딩 메뉴의 주문하기 버튼
+        content_order.setOnClickListener {
+            startActivity(Intent(this@ContentActivity,OrderActivity::class.java))
+        }
 
         //slidingPage 이 외의 영역 터치시 slidingpage 내림
         whole_view.setOnTouchListener(object : View.OnTouchListener{

@@ -11,49 +11,36 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:elevation="10dp"
+        android:elevation="25dp"
         android:background="#ffffff">
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/back_button"
-                android:layout_marginTop="25dp"/>
+            android:layout_height="match_parent">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="우리집식물원"
-                android:textStyle="bold"
                 android:textSize="20dp"
-                android:gravity="center_vertical"
-                android:layout_marginHorizontal="130dp"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginHorizontal="70dp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/horizonal_menu"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginHorizontal="21dp"
+                android:src="@drawable/horizonal_menu" />
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#434141"
-    />
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8">
     </androidx.viewpager.widget.ViewPager>
-<!--    <View-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-<!--        android:background="#434141"-->
-<!--        />-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnavi"
         android:layout_width="match_parent"
@@ -63,6 +50,7 @@
         app:menu="@menu/navigation"
         android:elevation="25dp"
         app:itemBackground="@color/white"
+        app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/bottomselector"
         app:itemTextColor="@color/bottomselector">
 

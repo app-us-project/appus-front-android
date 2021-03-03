@@ -9,7 +9,6 @@ class FragmentAdapter(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter
     override fun getItem(position: Int): Fragment {
         return fragmentList.get(position)
     }
-
     override fun getCount(): Int {
         return fragmentList.size
     }

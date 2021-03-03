@@ -2,6 +2,7 @@ package com.jm5.appus
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.viewpager.widget.ViewPager
 import com.jm5.appus.adapter.FragmentAdapter
 import com.jm5.appus.fragments.ContentsFragment
@@ -31,12 +32,14 @@ class MainActivity : AppCompatActivity() {
             ) {}
             // 네비게이션 메뉴 아이템 체크상태
             override fun onPageSelected(position: Int) {
+                Log.e("check->","position : "+position)
                 bottomnavi.menu.getItem(position).isChecked=true
+                if(position==0){toolbar_title.text="우리식물원"}
+                if(position==1){toolbar_title.text="상품목록"}
+                if(position==2){toolbar_title.text="      찜  "}
+                if(position==3){ toolbar_title.text="마이페이지"}
             }
         })
-
-
-
 
         bottomnavi.setOnNavigationItemSelectedListener {
             when(it.itemId){

@@ -9,8 +9,8 @@
     tools:context=".SplashActivity"
     android:gravity="center">
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:src="@drawable/appus_logo"
-        android:scaleType="fitCenter"/>
+        android:scaleType="centerCrop"/>
 </LinearLayout>

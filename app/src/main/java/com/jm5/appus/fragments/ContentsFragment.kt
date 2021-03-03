@@ -15,6 +15,7 @@ import com.jm5.appus.OnItemClickListener
 import com.jm5.appus.R
 import com.jm5.appus.adapter.PlantAdapter
 import com.jm5.appus.dataForm.PlantsList
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
 
 class ContentsFragment : Fragment() {
