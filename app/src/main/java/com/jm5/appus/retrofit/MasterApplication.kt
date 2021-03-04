@@ -45,7 +45,7 @@ class MasterApplication: Application() {
 //            .build()
 
         val retrofit= Retrofit.Builder()
-            .baseUrl("!!baseURL!!")
+            .baseUrl("http://13.125.16.233:8080")
             .addConverterFactory(GsonConverterFactory.create())
 //            .client(client)
             .build()

@@ -1,17 +1,30 @@
 package com.jm5.appus.retrofit
 
-import android.telecom.Call
-import retrofit2.http.Body
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import com.jm5.appus.dataForm.Sign
+import com.jm5.appus.dataForm.Verification
+import retrofit2.http.*
+import retrofit2.Call
 
 interface RetrofitService {
-//    @Headers("content-type: application/json")
-//    @POST("users/signup")
-//    fun register(
-//        @Body user: HashMap<String,String>
-//    ): Call<Sign>
-//
+    @Headers("content-type: application/json")
+    @POST("/users/sign-up")
+    fun register(
+        @Body user: Sign
+    ):Call<Verification>
+
+    //휴대폰 인증번호
+    @Headers("content-type: application/json")
+    @POST("/users/auth-code/sending/{phoneNumber}")
+    fun phoneNumCheck(
+        @Path("phoneNumber",encoded = true) body : String
+    ):Call<Void>
+
+    //휴대폰 인증번호 확인
+    @Headers("content-type: application/json")
+    @POST("/users/auth-code/{phoneNumberAndVerify}")
+    fun checkVeri(
+        @Path("phoneNumberAndVerify",encoded = true) body: String
+    ):Call<Void>
 //    // 닉네임 중복 확인 GET
 //    @Headers("content-type: application/json")
 //    @POST("users")

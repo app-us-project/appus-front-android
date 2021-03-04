@@ -90,6 +90,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/box"
+                android:inputType="textPassword"
                 android:hint="비밀번호를 입력해주세요."
                 android:paddingLeft="10dp"/>
 
@@ -112,6 +113,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/box"
+                android:inputType="textPassword"
                 android:hint="비밀번호를 한번 더 입력해주세요."
                 android:paddingLeft="10dp" />
 
