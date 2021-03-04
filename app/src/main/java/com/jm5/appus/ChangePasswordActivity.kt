@@ -7,18 +7,12 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.CompoundButton
-import kotlinx.android.synthetic.main.activity_sign.*
 
-class SignActivity : AppCompatActivity() {
+class ChangePasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign)
-        backBtn.setOnClickListener { onBackPressed() }
-        allCheckBtn.setOnClickListener { onCheckChanged(allCheckBtn) }
-        firstCheckBtn.setOnClickListener { onCheckChanged(firstCheckBtn) }
+        setContentView(R.layout.activity_change_password)
     }
-
     //focus가 아닌 곳 터치시 키패드 내리기
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         val focusView: View? = currentFocus
@@ -37,15 +31,4 @@ class SignActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
-    private fun onCheckChanged(compoundButton: CompoundButton) {
-        when(compoundButton.id) {
-            R.id.allCheckBtn -> {
-                if (allCheckBtn.isChecked) {
-                    firstCheckBtn.isChecked = true
-                }else {
-                    firstCheckBtn.isChecked = false
-                }
-            }
-        }
-    }
 }

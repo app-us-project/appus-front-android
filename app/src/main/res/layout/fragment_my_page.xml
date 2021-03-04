@@ -5,265 +5,261 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MyPageFragment">
-    <!--    장바구니-->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        android:background="@drawable/box"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <ImageView
-            android:id="@+id/basket"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/basket" />
-        <View
-            android:layout_marginLeft="20dp"
-            android:background="#45000000"
-            android:layout_width="1dp"
-            android:layout_height="50dp" />
-        <TextView
-            android:id="@+id/textBasket"
-            android:layout_width="wrap_content"
-            android:layout_height="40sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="170dp"
-            android:gravity="center_vertical"
-            android:text="장바구니"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/basketMove"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/next" />
-    </LinearLayout>
-
-    <!--찜-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="vertical"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/box">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:orientation="horizontal"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:id="@+id/like"
-                android:layout_width="30dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="13dp"
-                android:src="@drawable/like" />
-            <View
-                android:layout_marginLeft="20dp"
-                android:background="#45000000"
-                android:layout_width="1dp"
-                android:layout_height="50dp" />
-            <TextView
-                android:id="@+id/wishList"
-                android:layout_width="wrap_content"
-                android:layout_height="40sp"
-                android:layout_marginTop="13dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="217dp"
-                android:gravity="center_vertical"
-                android:text="찜"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/wishListMove"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/next" />
-        </LinearLayout>
-
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/add"
-                android:layout_marginLeft="60dp"
-                android:layout_gravity="center_vertical"/>
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/plant"
+            android:orientation="vertical">
+            <!--    장바구니-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                android:background="@drawable/box"
                 android:layout_marginLeft="20dp"
-                android:layout_gravity="center_vertical"/>
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/flower"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center_vertical"/>
+                android:layout_marginRight="20dp">
+
+                <ImageView
+                    android:id="@+id/basket"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/basket" />
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:background="#45000000"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/textBasket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="170dp"
+                    android:gravity="center_vertical"
+                    android:text="장바구니"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/basketMove"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <!--찜-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/box">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+
+                    <ImageView
+                        android:id="@+id/like"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="13dp"
+                        android:src="@drawable/like" />
+                    <View
+                        android:layout_marginLeft="20dp"
+                        android:background="#45000000"
+                        android:layout_width="1dp"
+                        android:layout_height="50dp" />
+                    <TextView
+                        android:id="@+id/wishList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40sp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="217dp"
+                        android:gravity="center_vertical"
+                        android:text="찜"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/wishListMove"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/next" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/add"
+                        android:layout_marginLeft="60dp"
+                        android:layout_gravity="center_vertical"/>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/plant"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"/>
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/flower"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--    주문내역-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                android:background="@drawable/box"
+                android:layout_marginTop="10dp"
+               android:layout_marginHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/shoppingBasket"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/shopping" />
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:background="#45000000"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/orderList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="170dp"
+                    android:gravity="center_vertical"
+                    android:text="주문내역"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/orderListMove"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <!--    개인정보수정-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                android:background="@drawable/box"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/setting"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/settings" />
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:background="#45000000"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/reInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="137dp"
+                    android:gravity="center_vertical"
+                    android:text="개인정보수정"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/infoMove"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <!--    로그아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:orientation="horizontal"
+                android:background="@drawable/box"
+                android:layout_marginTop="10dp"
+               android:layout_marginHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/logout"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/unlock" />
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:background="#45000000"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/logoutText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="170dp"
+                    android:gravity="center_vertical"
+                    android:text="로그아웃"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <!--    문의-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:layout_marginTop="30dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="문의|000-0000-0000 으로 문의주세요"
+                    android:textSize="15dp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-    <!--    주문내역-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        android:background="@drawable/box"
-        android:layout_marginTop="370dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <ImageView
-            android:id="@+id/shoppingBasket"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/shopping" />
-        <View
-            android:layout_marginLeft="20dp"
-            android:background="#45000000"
-            android:layout_width="1dp"
-            android:layout_height="50dp" />
-        <TextView
-            android:id="@+id/orderList"
-            android:layout_width="wrap_content"
-            android:layout_height="40sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="170dp"
-            android:gravity="center_vertical"
-            android:text="주문내역"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/orderListMove"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/next" />
-    </LinearLayout>
-
-    <!--    개인정보수정-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        android:background="@drawable/box"
-        android:layout_marginTop="440dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <ImageView
-            android:id="@+id/setting"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/settings" />
-        <View
-            android:layout_marginLeft="20dp"
-            android:background="#45000000"
-            android:layout_width="1dp"
-            android:layout_height="50dp" />
-        <TextView
-            android:id="@+id/reInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="40sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="137dp"
-            android:gravity="center_vertical"
-            android:text="개인정보수정"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/infoMove"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/next" />
-    </LinearLayout>
-
-    <!--    로그아웃-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        android:background="@drawable/box"
-        android:layout_marginTop="510dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
-
-        <ImageView
-            android:id="@+id/logout"
-            android:layout_width="30dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/unlock" />
-        <View
-            android:layout_marginLeft="20dp"
-            android:background="#45000000"
-            android:layout_width="1dp"
-            android:layout_height="50dp" />
-        <TextView
-            android:id="@+id/logoutText"
-            android:layout_width="wrap_content"
-            android:layout_height="40sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="170dp"
-            android:gravity="center_vertical"
-            android:text="로그아웃"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <!--    문의-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="104dp"
-            android:layout_marginTop="600dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginRight="88dp"
-            android:text="문의|000-0000-0000 으로 문의주세요"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </ScrollView>
 </FrameLayout>
