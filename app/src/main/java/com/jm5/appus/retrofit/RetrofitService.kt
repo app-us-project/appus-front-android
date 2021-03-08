@@ -6,6 +6,7 @@ import retrofit2.http.*
 import retrofit2.Call
 
 interface RetrofitService {
+    //회원가입
     @Headers("content-type: application/json")
     @POST("/users/sign-up")
     fun register(
@@ -17,14 +18,14 @@ interface RetrofitService {
     @POST("/users/auth-code/sending/{phoneNumber}")
     fun phoneNumCheck(
         @Path("phoneNumber",encoded = true) body : String
-    ):Call<Void>
+    ):Call<Verification>
 
     //휴대폰 인증번호 확인
     @Headers("content-type: application/json")
     @POST("/users/auth-code/{phoneNumberAndVerify}")
     fun checkVeri(
         @Path("phoneNumberAndVerify",encoded = true) body: String
-    ):Call<Void>
+    ):Call<Verification>
 //    // 닉네임 중복 확인 GET
 //    @Headers("content-type: application/json")
 //    @POST("users")

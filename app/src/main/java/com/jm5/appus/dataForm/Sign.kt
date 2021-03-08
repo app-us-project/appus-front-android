@@ -7,5 +7,5 @@ data class Sign (
     var password : String,
     var passwordCheck : String,
     var phoneNumber : String,
-    var terms : ArrayList<TermsAgreementDto>
+    var terms : Array<TermsAgreementDto>
 ):Serializable

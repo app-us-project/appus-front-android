@@ -62,6 +62,7 @@
 
             <EditText
                 android:id="@+id/editEmail"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -137,6 +138,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
+                    android:inputType="phone"
                     android:background="@drawable/box"
                     android:hint="휴대폰번호를 입력해주세요. "
                     android:layout_marginLeft="20dp"
@@ -258,8 +260,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
-                android:background="@drawable/order_round"
+                android:background="@drawable/buttonbackground_false"
                 android:text="가입하기"
+                android:clickable="false"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
         </LinearLayout>
