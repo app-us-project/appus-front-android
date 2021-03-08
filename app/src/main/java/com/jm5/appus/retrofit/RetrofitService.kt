@@ -18,7 +18,7 @@ interface RetrofitService {
     @POST("/users/auth-code/sending/{phoneNumber}")
     fun phoneNumCheck(
         @Path("phoneNumber",encoded = true) body : String
-    ):Call<Verification>
+    ):Call<Void>
 
     //휴대폰 인증번호 확인
     @Headers("content-type: application/json")

@@ -141,21 +141,21 @@ class SignActivity : AppCompatActivity() {
 
         (application as MasterApplication).service.phoneNumCheck(
             phoneNum
-        ).enqueue(object : Callback<Verification>{
-            override fun onFailure(call: Call<Verification>, t: Throwable) {
+        ).enqueue(object : Callback<Void>{
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 checkSumPhone=false
                 Toast.makeText(activity, "인증번호 보내기 실패!", Toast.LENGTH_LONG).show()
-                Log.e("Sign?>>","번호인증 실패,${call.execute().message().toString()} ,${t.message.toString()}")
+                Log.e("Sign?>>","번호인증 실패,${t.localizedMessage} ,${t.message.toString()}")
             }
 
-            override fun onResponse(call: Call<Verification>, response: Response<Verification>) {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if(response.isSuccessful){
                     checkSumPhone=true
                     Toast.makeText(activity, "인증번호 보내기 성공!", Toast.LENGTH_LONG).show()
-                    Log.e("Sign?>>","번호인증 성공, ${response.message()}, ${response.body()?.message}")
+                    Log.e("Sign?>>","번호인증 성공, ${response.message()}, ${response.message()}")
                 }else{
                     Toast.makeText(activity, "이미 가입된 휴대폰 번호입니다", Toast.LENGTH_LONG).show()
-                    Log.e("Sign?>>","번호인증 err, ${response.errorBody()}, ${response.headers()}, ${response.body()?.message}")
+                    Log.e("Sign?>>","번호인증 err, ${response.errorBody()}, ${response.headers()}, ${response.message()}")
                 }
             }
         })
@@ -172,13 +172,13 @@ class SignActivity : AppCompatActivity() {
         ).enqueue(object : Callback<Verification>{
             override fun onFailure(call: Call<Verification>, t: Throwable) {
                 Toast.makeText(activity, "인증 실패", Toast.LENGTH_LONG).show()
-                Log.e("Sign?>>","인증번호 확인 실패, ${call.toString()}, ${t.message.toString()}")
+                Log.e("Sign?>>","인증번호 확인 실패, ${t.message.toString()}")
                 checkSumPhoneVerifiy=false
             }
 
             override fun onResponse(call: Call<Verification>, response: Response<Verification>) {
                 Toast.makeText(activity, "인증 성공", Toast.LENGTH_LONG).show()
-                Log.e("Sign?>>","인증번호 확인 성공, ${call.toString()}, ${response.body().toString()}")
+                Log.e("Sign?>>","인증번호 확인 성공, ${response.body().toString()}")
                 checkSumPhoneVerifiy=true
             }
         })
@@ -215,11 +215,11 @@ class SignActivity : AppCompatActivity() {
                 Toast.makeText(activity, """회원가입에 실패했습니다
                     |${call }|${t.message}
                 """.trimMargin(), Toast.LENGTH_LONG).show()
-                Log.e("Sign?>>","fail, ${call.toString()}, ${t.message}")
+                Log.e("Sign?>>","fail, ${t.message}")
             }
             override fun onResponse(call: Call<Verification>, response: Response<Verification>) {
                 Toast.makeText(activity,  response.body().toString(), Toast.LENGTH_LONG).show()
-                Log.e("Sign?>>","Success, ${call.toString()}, ${response.body().toString()}")
+                Log.e("Sign?>>","Success,  ${response.body().toString()}")
                 val token = response.headers().get("X-AUTH-TOKEN").toString()
                     saveUserToken(token, activity)
                     (application as MasterApplication).createRetrofit()
