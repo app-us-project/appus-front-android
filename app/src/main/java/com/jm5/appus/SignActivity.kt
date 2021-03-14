@@ -177,9 +177,15 @@ class SignActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<Verification>, response: Response<Verification>) {
-                Toast.makeText(activity, "인증 성공", Toast.LENGTH_LONG).show()
-                Log.e("Sign?>>","인증번호 확인 성공, ${response.body().toString()}")
-                checkSumPhoneVerifiy=true
+                if(response.isSuccessful){
+                    Toast.makeText(activity, "인증 성공", Toast.LENGTH_LONG).show()
+                    Log.e("Sign?>>","인증번호 확인 성공, ${response.body()?.message}")
+                    checkSumPhoneVerifiy=true
+                }else{
+                    Toast.makeText(activity, "인증 err", Toast.LENGTH_LONG).show()
+                    Log.e("Sign?>>","인증번호 err, ${response.body()?.message}")
+                }
+
             }
         })
     }
