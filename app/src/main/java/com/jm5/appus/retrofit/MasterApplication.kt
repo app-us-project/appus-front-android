@@ -51,7 +51,11 @@ class MasterApplication: Application() {
             .build()
 
         service=retrofit.create(RetrofitService::class.java)
+
+
+
     }
+
 
 
     // 로그인 확인
@@ -72,4 +76,9 @@ class MasterApplication: Application() {
         if(token=="null") return null
         else return token
     }
+
+
+
+
+
 }
