@@ -232,27 +232,80 @@
                     android:layout_height="3dp"
                     android:background="#45000000" />
 
-                <LinearLayout
+                <ScrollView
+                    android:id="@+id/sign_terms_scrollview"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/firstCheckBtn"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="10dp" />
-
-                    <TextView
-                        android:id="@+id/necessaryAgree"
+                    android:layout_height="match_parent">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical"
-                        android:text="약관 동의(필수)"
-                        android:textSize="15dp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/sign_term1_checkbox"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp" />
+
+                            <TextView
+                                android:id="@+id/sign_term1"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical"
+                                android:text="약관 동의(필수)"
+                                android:textSize="15dp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/sign_term2_checkbox"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp" />
+
+                            <TextView
+                                android:id="@+id/sign_term2"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical"
+                                android:text="약관 동의(필수)"
+                                android:textSize="15dp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/sign_term3_checkbox"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp" />
+
+                            <TextView
+                                android:id="@+id/sign_term3"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center_vertical"
+                                android:text="약관 동의(필수)"
+                                android:textSize="15dp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+
             </LinearLayout>
 
             <Button

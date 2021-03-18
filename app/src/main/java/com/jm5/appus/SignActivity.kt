@@ -15,6 +15,7 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import com.jm5.appus.dataForm.Sign
 import com.jm5.appus.dataForm.TermsAgreementDto
+import com.jm5.appus.dataForm.Terms_SignUp
 import com.jm5.appus.dataForm.Verification
 import com.jm5.appus.retrofit.MasterApplication
 import kotlinx.android.synthetic.main.activity_sign.*
@@ -28,17 +29,46 @@ class SignActivity : AppCompatActivity() {
     var checkSumEmail = false
     var checkSumPass1 = false
     var checkSumPass2 = false
-    var checkSumPhone = false
-    var checkSumPhoneVerifiy = false
-    var checkSumForm = false
+    //test
+    var checkSumPhone = true
+    //test
+    var checkSumPhoneVerifiy = true
+    var checkSumForm1 = false
+    var checkSumForm2 = false
+    var checkSumForm3 = false
+
+    lateinit var agreement : Array<TermsAgreementDto>
+//            arrayOf(
+//            TermsAgreementDto(1,true),
+//            TermsAgreementDto(2,true),
+//            TermsAgreementDto(3,false)
+//            )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign)
         backBtn.setOnClickListener { onBackPressed() }
         allCheckBtn.setOnClickListener { onCheckChanged(allCheckBtn) }
-        firstCheckBtn.setOnClickListener { onCheckChanged(firstCheckBtn) }
+        sign_term1_checkbox.setOnClickListener { onCheckChanged(sign_term1_checkbox) }
+        sign_term2_checkbox.setOnClickListener { onCheckChanged(sign_term2_checkbox) }
+        sign_term3_checkbox.setOnClickListener { onCheckChanged(sign_term3_checkbox) }
 
+
+//        sign_term3_checkbox.setOnCheckedChangeListener { compoundButton, b ->
+//            Log.e("test>>",b.toString())
+//        }
+        sign_term1_checkbox.setOnCheckedChangeListener { compoundButton, b ->
+            checkSumForm1 = b
+        }
+
+        sign_term2_checkbox.setOnCheckedChangeListener { compoundButton, b ->
+            checkSumForm2 = b
+        }
+        sign_term3_checkbox.setOnCheckedChangeListener { compoundButton, b ->
+            checkSumForm3 = b
+        }
+        //동의 약관 로드
+        loadTerms()
         //이메일 형식 체크
         editEmail.addTextChangedListener(object :TextWatcher{
             override fun afterTextChanged(p0: Editable?) {
@@ -82,13 +112,13 @@ class SignActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
         //약관 전체 동의 버튼 리스너
-        allCheckBtn.setOnCheckedChangeListener { p0, p1 ->
-            if(!p1){
-                checkSumForm=false
-                sign_button.isClickable=false
-                sign_button.setBackgroundResource(R.drawable.buttonbackground_false)
-            }else checkSumForm=true
-        }
+//        allCheckBtn.setOnCheckedChangeListener { p0, p1 ->
+//            if(!p1){
+//                checkSumForm=false
+//                sign_button.isClickable=false
+//                sign_button.setBackgroundResource(R.drawable.buttonbackground_false)
+//            }else checkSumForm=true
+//        }
         //휴대폰 인증 번호 요청시 null 체크 후, TakeNum실행
         btnTakeNum.setOnClickListener {
             if(!(editPhoneNumber.equals("")||editPhoneNumber==null))
@@ -131,7 +161,8 @@ class SignActivity : AppCompatActivity() {
         })
 
         sign_button.setOnClickListener {
-            if(checkSumEmail&&checkSumPass1&&checkSumPass2&&checkSumPhone&&checkSumPhoneVerifiy&&checkSumForm) register(this)
+            //checkSumEmail&&checkSumPass1&&checkSumPass2&&checkSumPhone&&checkSumPhoneVerifiy&&checkSumForm
+            if(checkSumEmail&&checkSumPass1&&checkSumPass2) register(this)
             else Toast.makeText(this,"정보를 입력해주세요",Toast.LENGTH_SHORT).show()
         }
     }
@@ -195,23 +226,35 @@ class SignActivity : AppCompatActivity() {
         val password = editPassword.text.toString()
         val passwordCheck = editCheckPassword.text.toString()
         val phoneNumber = editPhoneNumber.text.toString()
-        //lateinit var agreement : Array<TermsAgreementDto>
-        val agreement = arrayOf(
-            TermsAgreementDto(1,true),
-            TermsAgreementDto(2,true),
-            TermsAgreementDto(3,true)
-        )
+
+//        lateinit var agreement:Array<TermsAgreementDto>
         //약관동의 ( 1,2번은 필수, 3번은 선택 )
         //allCheckBtn
+
+
 //        if(allCheckBtn.isChecked){
+////            agreement.set(0,TermsAgreementDto(1,true))
+////            agreement.set(1,TermsAgreementDto(2,true))
+////            agreement.set(2,TermsAgreementDto(3,true))
+//
 //            agreement[0]= TermsAgreementDto(1,true)
 //            agreement[1]=TermsAgreementDto(2,true)
 //            agreement[2]=TermsAgreementDto(3,true)
-//        }else{
+//
+//            sign_button.setBackgroundResource(R.drawable.buttonbackground)
+//            sign_button.isClickable=true
+//        }else if(!(sign_term1_checkbox.isChecked&&sign_term2_checkbox.isChecked)){
 //            sign_button.setBackgroundResource(R.drawable.buttonbackground_false)
 //            sign_button.isClickable=false
-//            return
+//        }else if(sign_term3_checkbox.isChecked) {
+//            agreement[2].agreement=true
+//            sign_button.setBackgroundResource(R.drawable.buttonbackground)
+//            sign_button.isClickable=true
+//        }else{
+//            sign_button.setBackgroundResource(R.drawable.buttonbackground)
+//            sign_button.isClickable=true
 //        }
+
         val user = Sign(email,password,passwordCheck,phoneNumber,agreement)
 
         (application as MasterApplication).service.register(
@@ -224,12 +267,24 @@ class SignActivity : AppCompatActivity() {
                 Log.e("Sign?>>","fail, ${t.message}")
             }
             override fun onResponse(call: Call<Verification>, response: Response<Verification>) {
-                Toast.makeText(activity,  response.body().toString(), Toast.LENGTH_LONG).show()
-                Log.e("Sign?>>","Success,  ${response.body().toString()}")
-                val token = response.headers().get("X-AUTH-TOKEN").toString()
+                if(response.isSuccessful) {
+                    Toast.makeText(activity, response.body().toString(), Toast.LENGTH_LONG).show()
+                    Log.e("Sign?>>", "Success,  ${response.body().toString()}")
+                    Log.e("Sign?>>",agreement.get(0).agreement.toString())
+                    Log.e("Sign?>>",agreement.get(1).agreement.toString())
+                    Log.e("Sign?>>",agreement.get(2).agreement.toString())
+                    val token = response.headers().get("X-AUTH-TOKEN").toString()
                     saveUserToken(token, activity)
                     (application as MasterApplication).createRetrofit()
-                finish()
+                    finish()
+                }
+                else{
+                    Log.e("Sign?>>","err${response.code()}${response.message()}")
+                    Toast.makeText(activity, response.message(), Toast.LENGTH_LONG).show()
+                    Log.e("Sign?>>",agreement.get(0).agreement.toString())
+                    Log.e("Sign?>>",agreement.get(1).agreement.toString())
+                    Log.e("Sign?>>",agreement.get(2).agreement.toString())
+                }
             }
         })
     }
@@ -261,11 +316,40 @@ class SignActivity : AppCompatActivity() {
         when(compoundButton.id) {
             R.id.allCheckBtn -> {
                 if (allCheckBtn.isChecked) {
-                    firstCheckBtn.isChecked = true
+                    sign_term1_checkbox.isChecked = true
+                    sign_term2_checkbox.isChecked = true
+                    sign_term3_checkbox.isChecked = true
                 }else {
-                    firstCheckBtn.isChecked = false
+                    sign_term1_checkbox.isChecked = false
+                    sign_term2_checkbox.isChecked = false
+                    sign_term3_checkbox.isChecked = false
                 }
             }
         }
+    }
+    //이용약관 데이터 로드
+    private fun loadTerms(){
+        (application as MasterApplication).service.loadTerms("SIGN_UP").enqueue(
+                object : Callback<List<Terms_SignUp>>{
+                    override fun onFailure(call: Call<List<Terms_SignUp>>, t: Throwable) {
+                        Log.e("Terms_Load_fail>>",t.message.toString())
+                    }
+
+                    override fun onResponse(call: Call<List<Terms_SignUp>>, response: Response<List<Terms_SignUp>>) {
+                        if(response.isSuccessful) {
+                            var body = response.body()
+//                            Log.e("Terms_Load",body?.get(0)?.id.toString())
+//                            Log.e("Terms_Load",body?.get(0)?.title.toString())
+//                            Log.e("Terms_Load",body?.get(0)?.content.toString())
+                            sign_term1.text=body?.get(0)?.title+"\n"+body?.get(0)?.content
+                            sign_term2.text=body?.get(1)?.title+"\n"+body?.get(1)?.content
+                            sign_term3.text=body?.get(2)?.title+"\n"+body?.get(2)?.content
+                        }
+                        else{
+                            Log.e("Terms_Load_ERR>>",response.raw().toString())
+                        }
+                    }
+                }
+        )
     }
 }
