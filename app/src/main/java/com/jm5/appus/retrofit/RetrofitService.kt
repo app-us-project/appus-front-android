@@ -1,11 +1,18 @@
 package com.jm5.appus.retrofit
 
 import com.jm5.appus.dataForm.Sign
+import com.jm5.appus.dataForm.Terms_SignUp
 import com.jm5.appus.dataForm.Verification
 import retrofit2.http.*
 import retrofit2.Call
 
 interface RetrofitService {
+    //약관
+    @Headers("content-type: application/json")
+    @GET("/users/terms/sign-up")
+    fun loadTerms(
+            @Query("terms-type" )  termsType : String
+    ):Call<List<Terms_SignUp>>
     //회원가입
     @Headers("content-type: application/json")
     @POST("/users/sign-up")
