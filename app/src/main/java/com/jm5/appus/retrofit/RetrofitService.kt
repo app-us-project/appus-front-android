@@ -9,6 +9,26 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 interface RetrofitService {
+    //비밀번호찾기 휴대폰 인증번호
+    @Headers("content-type: application/json")
+    @POST("/users/password/search/auth-code/sending")
+    fun searchPassword(
+            @Body user: SearchPassword
+    ):Call<Void>
+
+    //비밀번호찾기 휴대폰 인증번호 확인
+    @Headers("content-type: application/json")
+    @POST("/users/password/search/auth-code/{phoneNumberAndVerify}")
+    fun searchPasswordCheckVeri(
+            @Path("phoneNumberAndVerify",encoded = true) body: String
+    ):Call<Void>
+
+    //비밀번호 변경
+    @Headers("content-type: application/json")
+    @POST("/users/password/change")
+    fun changePassword(
+            @Body user: ChangePassword
+    ):Call<Void>
     //로그인
     @Headers("content-type: application/json")
     @POST("/users/login")
