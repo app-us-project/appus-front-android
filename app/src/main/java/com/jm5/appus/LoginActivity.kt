@@ -121,7 +121,7 @@ class LoginActivity : AppCompatActivity() {
                     val token = response.message().toString()
                     saveUserToken(token, activity)
                     (application as MasterApplication).createRetrofit()
-                    finish()
+                    startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                 }else{
                     Log.e("Login?>>","error ${response.code()}")
                     Toast.makeText(activity, "아이디, 비밀번호를 확인해주세요", Toast.LENGTH_LONG).show()
