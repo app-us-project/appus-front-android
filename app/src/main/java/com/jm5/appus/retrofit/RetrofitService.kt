@@ -1,12 +1,20 @@
 package com.jm5.appus.retrofit
 
-import com.jm5.appus.dataForm.Sign
-import com.jm5.appus.dataForm.Terms_SignUp
-import com.jm5.appus.dataForm.Verification
+import com.google.gson.annotations.SerializedName
+import com.jm5.appus.dataForm.*
 import retrofit2.http.*
 import retrofit2.Call
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 interface RetrofitService {
+    //로그인
+    @Headers("content-type: application/json")
+    @POST("/users/login")
+    fun login(
+            @Body login : Login
+    ):Call<JWT>
     //약관
     @Headers("content-type: application/json")
     @GET("/users/terms/sign-up")
@@ -14,11 +22,21 @@ interface RetrofitService {
             @Query("terms-type" )  termsType : String
     ):Call<List<Terms_SignUp>>
     //회원가입
+//    @FormUrlEncoded
+    @JvmSuppressWildcards
     @Headers("content-type: application/json")
     @POST("/users/sign-up")
     fun register(
-        @Body user: Sign
-    ):Call<Verification>
+            @Body body : Sign
+    ):Call<Void>
+//    @JvmSuppressWildcards
+//    fun register(
+//            @Field("email") email: String,
+//            @Field("password") password: String,
+//            @Field("passwordCheck") passwordCheck: String,
+//            @Field("phoneNumber") phoneNumber: String,
+//            @Field("terms") terms: List<HashMap<String, Any>>
+//    ):Call<Void>
 
     //휴대폰 인증번호
     @Headers("content-type: application/json")

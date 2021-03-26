@@ -12,7 +12,11 @@ class MasterApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        //Stetho.initializeWithDefaults(this)
+//        Stetho.initializeWithDefaults(this)
+//        val stethoInterceptor = StethoInterceptor()
+//        if(BuildConfig.DEBUG){
+//            stethoInterceptor.intercept().
+//        }
         createRetrofit()  //사용자 로그인 여부에 의해 retrofit을 만들어냄 (토큰 있, 없)
         //chrome://inspect/#devices
     }
@@ -44,11 +48,21 @@ class MasterApplication: Application() {
 //            .addNetworkInterceptor(StethoInterceptor())
 //            .build()
 
+//        val client: OkHttpClient.Builder =
+//                OkHttpClient.Builder().apply {
+//            addInterceptor(HttpLoggingInterceptor().apply {
+//                level=HttpLoggingInterceptor.Level.BODY
+//            })
+//        }
+
         val retrofit= Retrofit.Builder()
-            .baseUrl("http://13.125.16.233:8080")
-            .addConverterFactory(GsonConverterFactory.create())
+//                .client(client.build())
+                .baseUrl("http://13.125.16.233:8080")
+                .addConverterFactory(GsonConverterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 //            .client(client)
             .build()
+//        Log.e("retrofit>>",retrofit.)
 
         service=retrofit.create(RetrofitService::class.java)
 
