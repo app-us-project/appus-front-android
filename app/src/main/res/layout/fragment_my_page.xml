@@ -19,6 +19,7 @@
                 android:layout_height="55dp"
                 android:orientation="horizontal"
                 android:background="@drawable/box"
+                android:elevation="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
 
@@ -45,7 +46,7 @@
                     android:text="장바구니"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <ImageView
                     android:id="@+id/basketMove"
@@ -60,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:orientation="vertical"
+                android:elevation="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="20dp"
                 android:background="@drawable/box">
@@ -93,7 +95,7 @@
                         android:text="찜"
                         android:textColor="@color/black"
                         android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
 
                     <ImageView
                         android:id="@+id/wishListMove"
@@ -133,6 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:orientation="horizontal"
+                android:elevation="5dp"
                 android:background="@drawable/box"
                 android:layout_marginTop="10dp"
                android:layout_marginHorizontal="20dp">
@@ -160,7 +163,7 @@
                     android:text="주문내역"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <ImageView
                     android:id="@+id/orderListMove"
@@ -175,6 +178,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:orientation="horizontal"
+                android:elevation="5dp"
                 android:background="@drawable/box"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="20dp">
@@ -202,7 +206,7 @@
                     android:text="개인정보수정"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
                 <ImageView
                     android:id="@+id/infoMove"
@@ -217,6 +221,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:orientation="horizontal"
+                android:elevation="5dp"
                 android:background="@drawable/box"
                 android:layout_marginTop="10dp"
                android:layout_marginHorizontal="20dp">
@@ -244,7 +249,7 @@
                     android:text="로그아웃"
                     android:textColor="@color/black"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </LinearLayout>
             <!--    문의-->
             <LinearLayout
@@ -258,6 +263,7 @@
                     android:layout_height="wrap_content"
                     android:text="문의|000-0000-0000 으로 문의주세요"
                     android:textSize="15dp"
+                    android:textStyle="normal"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>

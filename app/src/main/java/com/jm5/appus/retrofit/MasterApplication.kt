@@ -2,7 +2,9 @@ package com.jm5.appus.retrofit
 
 import android.app.Application
 import android.content.Context
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.Interceptor
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -43,10 +45,10 @@ class MasterApplication: Application() {
             }
         }
 
-//        val client= OkHttpClient.Builder()
-//            .addInterceptor(header)
-//            .addNetworkInterceptor(StethoInterceptor())
-//            .build()
+        val client= OkHttpClient.Builder()
+            .addInterceptor(header)
+            .addNetworkInterceptor(StethoInterceptor())
+            .build()
 
 //        val client: OkHttpClient.Builder =
 //                OkHttpClient.Builder().apply {
@@ -65,13 +67,7 @@ class MasterApplication: Application() {
 //        Log.e("retrofit>>",retrofit.)
 
         service=retrofit.create(RetrofitService::class.java)
-
-
-
     }
-
-
-
     // 로그인 확인
     // sharedPreference에 토큰 값이 있으면 로그인 된 것으로 간주, 없으면 로그인 안된 것으로 간주
     fun checkIsLogin():Boolean{
@@ -90,9 +86,4 @@ class MasterApplication: Application() {
         if(token=="null") return null
         else return token
     }
-
-
-
-
-
 }

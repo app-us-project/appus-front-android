@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val fragmentList = listOf(
             HomeFragment(), ContentsFragment(), LikeFragment(), MyPageFragment()
         )
+
         val adapter = FragmentAdapter(supportFragmentManager,1)
         adapter.fragmentList=fragmentList
         viewpager.adapter=adapter
@@ -34,9 +34,9 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 Log.e("check->","position : "+position)
                 bottomnavi.menu.getItem(position).isChecked=true
-                if(position==0){toolbar_title.text="우리식물원"}
-                if(position==1){toolbar_title.text="상품목록"}
-                if(position==2){toolbar_title.text="      찜  "}
+                if(position==0){toolbar_title.text="심다"}
+                if(position==1){toolbar_title.text="심다"}
+                if(position==2){toolbar_title.text="찜"}
                 if(position==3){ toolbar_title.text="마이페이지"}
             }
         })

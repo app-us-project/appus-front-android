@@ -98,7 +98,7 @@ class ContentActivity : AppCompatActivity() {
 
     }
     fun initInfo(name:String?,img:String?, price:String?){
-        content_name_top.text=name
+//        content_name_top.text=name
         content_name.text=name
         content_price.text=price
         total_name.text=name

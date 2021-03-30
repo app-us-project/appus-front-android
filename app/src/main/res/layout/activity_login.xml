@@ -29,12 +29,6 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
-            <ImageButton
-                android:id="@+id/btn_cart"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/basket" />
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

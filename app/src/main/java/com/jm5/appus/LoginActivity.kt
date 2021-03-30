@@ -21,6 +21,7 @@ import retrofit2.Response
 class LoginActivity : AppCompatActivity() {
     var checkSum1=false
     var checkSum2=false
+    val activity = this
     var backPressedTime :Long = 0
     lateinit var email: String
     lateinit var password: String
@@ -118,8 +119,12 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(activity, "반갑습니다!${email}님!", Toast.LENGTH_LONG).show()
                     Log.e("Login?>>", "Success,  ${response.body().toString()}")
 //                    val token = response.headers().get("X-AUTH-TOKEN").toString()
-                    val token = response.message().toString()
-                    saveUserToken(token, activity)
+                    val token = response.body()?.jwt
+                    Log.e("loadProducts?>>", "login_save>>${token}")
+
+
+                    activity.getPreferences(Context.MODE_PRIVATE).edit().putString("login_token",token).apply()
+//                    saveUserToken(token, activity)
                     (application as MasterApplication).createRetrofit()
                     startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                 }else{
@@ -130,10 +135,10 @@ class LoginActivity : AppCompatActivity() {
         })
     }
     // 토큰 받아서 SharedPreference에 저장
-    fun saveUserToken(token: String, activity: Activity) {
-        val sp = activity.getSharedPreferences("login_token", Context.MODE_PRIVATE)
+    fun saveUserToken(token: String?, activity: Activity) {
+        val sp = activity.getSharedPreferences("login_token", 0)
         val editor = sp.edit()
-        editor.putString("login_token", token)
-        editor.apply()
+        editor.putString("login_token", token).apply()
+        Log.e("loadProducts>>", "save22>>${token}")
     }
 }

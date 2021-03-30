@@ -1,14 +1,15 @@
 package com.jm5.appus.retrofit
 
-import com.google.gson.annotations.SerializedName
 import com.jm5.appus.dataForm.*
 import retrofit2.http.*
 import retrofit2.Call
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 interface RetrofitService {
+    //전체 상품 로드
+    @GET("/api/product/")
+//    fun loadProducts():Call<Any>
+    fun loadProducts(@Header("authentication") authentication : String?):Call<LoadProducts>
+
     //비밀번호찾기 휴대폰 인증번호
     @Headers("content-type: application/json")
     @POST("/users/password/search/auth-code/sending")

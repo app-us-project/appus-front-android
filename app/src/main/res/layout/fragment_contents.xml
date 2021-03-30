@@ -4,10 +4,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ContentsFragment">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recylerview"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </androidx.recyclerview.widget.RecyclerView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="7dp"
+                        android:text="우리들의 "
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#050505"
+                        android:textStyle="normal"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="7dp"
+                        android:text="이야기"
+                        android:textColor="@color/appusBlue"
+                        android:textStyle="normal"
+                        android:textSize="22dp"
+                        />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recylerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="10dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="식물들의 "
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#000000"
+                        android:textStyle="normal"
+                        android:textSize="20dp"/>
+                    <TextView
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이야기"
+                        android:textColor="@color/appusBlue"
+                        android:textStyle="normal"
+                        android:textSize="22dp"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
