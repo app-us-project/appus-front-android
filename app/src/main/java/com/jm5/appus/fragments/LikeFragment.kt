@@ -10,6 +10,7 @@ import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.jm5.appus.ContentActivity
 import com.jm5.appus.OnItemClickListener
 import com.jm5.appus.R
 import com.jm5.appus.adapter.PlantAdapter
@@ -40,18 +41,18 @@ class LikeFragment : Fragment() {
         recyclerView.adapter = adapter
 
 
-//        adapter.setItemListener(object : OnItemClickListener {
-//            override fun onItemClick(holder: PlantAdapter.ViewHolder, view: View, position: Int) {
-//                var item = adapter.getItem(position)
-//
-//                var intent = Intent(context, ContentActivity::class.java)
-//                intent.putExtra("plantName",item.name)
-//                intent.putExtra("plantImg",item.img)
-//                intent.putExtra("plantPrice",item.prices)
-//
-//                startActivity(intent)
-//            }
-//        })
+        adapter.setItemListener(object : OnItemClickListener {
+            override fun onItemClick(holder: PlantAdapter.ViewHolder, view: View, position: Int) {
+                var item = adapter.getItem(position)
+
+                var intent = Intent(context, ContentActivity::class.java)
+                intent.putExtra("plantName",item.name)
+                intent.putExtra("plantImg",item.img)
+                intent.putExtra("plantPrice",item.prices)
+
+                startActivity(intent)
+            }
+        })
         return view
     }
     fun updateList(){
